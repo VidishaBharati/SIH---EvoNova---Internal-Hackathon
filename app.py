@@ -434,6 +434,12 @@ def register():
             "English"
         )
 
+        # Scouts do not provide athlete location or age details at registration.
+        if role == "scout":
+            age = None
+            city = None
+            state = None
+
         existing_user = User.query.filter_by(
             username=username
         ).first()

@@ -36,3 +36,23 @@ document.addEventListener(
 
     }
 );
+
+document.addEventListener("DOMContentLoaded", function () {
+    const roleSelect = document.querySelector("#role");
+    const fields = document.querySelector("#athlete-coach-fields");
+
+    if (!roleSelect || !fields) return;
+
+    function updateFields() {
+        const isScout = roleSelect.value === "scout";
+
+        fields.hidden = isScout;
+
+        fields.querySelectorAll("input").forEach(function (input) {
+            input.disabled = isScout;
+        });
+    }
+
+    roleSelect.addEventListener("change", updateFields);
+    updateFields();
+});

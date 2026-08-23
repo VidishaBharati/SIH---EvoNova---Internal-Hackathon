@@ -24,40 +24,28 @@ Register | GaonKhiladi
                 Full Name
             </label>
 
-            <input
-                type="text"
-                name="full_name"
-                required
-            >
+            <input type="text" name="full_name" required>
 
 
             <label>
                 Username
             </label>
 
-            <input
-                type="text"
-                name="username"
-                required
-            >
+            <input type="text" name="username" required>
 
 
             <label>
                 Password
             </label>
 
-            <input
-                type="password"
-                name="password"
-                required
-            >
+            <input type="password" name="password" required>
 
 
             <label>
                 Account Type
             </label>
 
-            <select name="role">
+            <select name="role" id="role">
 
                 <option value="athlete">
                     Athlete
@@ -114,39 +102,27 @@ Register | GaonKhiladi
 
             </select>
 
+            <div id="athlete-coach-fields">
+                <label>
+                    Age
+                </label>
 
-            <label>
-                Age
-            </label>
-
-            <input
-                type="number"
-                name="age"
-                min="8"
-                max="60"
-            >
+                <input type="number" name="age" min="8" max="60">
 
 
-            <label>
-                City / Village
-            </label>
+                <label>
+                    City / Village
+                </label>
 
-            <input
-                type="text"
-                name="city"
-                placeholder="Your village or town"
-            >
+                <input type="text" name="city" placeholder="Your village or town">
 
 
-            <label>
-                State
-            </label>
+                <label>
+                    State
+                </label>
 
-            <input
-                type="text"
-                name="state"
-                placeholder="Assam"
-            >
+                <input type="text" name="state" placeholder="Assam">
+            </div>
 
 
             <label>
@@ -174,9 +150,7 @@ Register | GaonKhiladi
             </select>
 
 
-            <button
-                type="submit"
-                class="primary-btn full-btn">
+            <button type="submit" class="primary-btn full-btn">
 
                 Create Account
 
