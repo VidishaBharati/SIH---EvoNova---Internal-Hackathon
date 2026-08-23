@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}GaonKhiladi{% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <a href="/" class="logo">
+        🏃 GaonKhiladi
+    </a>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        {% if session.get("user_id") %}
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/athletes">
+                Athletes
+            </a>
+
+            <a href="/opportunities">
+                Trials
+            </a>
+
+            <a href="/training">
+                Training
+            </a>
+
+            <a href="/notifications">
+                🔔
+            </a>
+
+            <a href="/profile">
+                Profile
+            </a>
+
+            <a href="/logout"
+               class="logout">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="/login">
+                Login
+            </a>
+
+            <a href="/register"
+               class="nav-btn">
+                Join Now
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
+
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+        <div class="flash-container">
+
+            {% for category, message in messages %}
+
+                <div class="flash {{ category }}">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+{% endwith %}
+
+
+<main>
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<footer>
+
+    <h3>🏃 GaonKhiladi</h3>
+
+    <p>
+        Connecting grassroots talent with opportunity.
+    </p>
+
+    <p>
+        © 2026 GaonKhiladi
+    </p>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

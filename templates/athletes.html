@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}
+Discover Athletes | GaonKhiladi
+{% endblock %}
+
+{% block content %}
+
+<section class="page">
+
+    <h1>
+        🔎 Discover Grassroots Talent
+    </h1>
+
+    <p>
+        Find athletes based on sport,
+        age and location.
+    </p>
+
+
+    <form class="filter-form"
+          method="GET">
+
+        <input
+            type="text"
+            name="sport"
+            placeholder="Sport"
+        >
+
+        <input
+            type="text"
+            name="city"
+            placeholder="Village / City"
+        >
+
+        <input
+            type="number"
+            name="min_age"
+            placeholder="Min Age"
+        >
+
+        <input
+            type="number"
+            name="max_age"
+            placeholder="Max Age"
+        >
+
+        <button
+            type="submit"
+            class="primary-btn">
+
+            Search
+
+        </button>
+
+    </form>
+
+
+    <div class="athlete-grid">
+
+        {% for athlete in athletes %}
+
+        <div class="athlete-card">
+
+            <div class="avatar">
+                🏃
+            </div>
+
+            <h3>
+                {{ athlete.full_name or athlete.username }}
+            </h3>
+
+            <p>
+                🏅 {{ athlete.sport or "Sport not added" }}
+            </p>
+
+            <p>
+                📍 {{ athlete.city or "Location unavailable" }}
+            </p>
+
+            <p>
+                Age:
+                {{ athlete.age or "N/A" }}
+            </p>
+
+            <a
+                href="/athlete/{{ athlete.id }}"
+                class="primary-btn">
+
+                View Athlete
+
+            </a>
+
+        </div>
+
+        {% else %}
+
+        <div class="empty">
+
+            <h3>
+                No athletes found.
+            </h3>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

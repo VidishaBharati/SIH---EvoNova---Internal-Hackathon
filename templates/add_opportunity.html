@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Opportunity | GaonKhiladi
+{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>
+            🎯 Publish Selection Opportunity
+        </h1>
+
+        <form method="POST">
+
+            <label>
+                Opportunity Title
+            </label>
+
+            <input
+                type="text"
+                name="title"
+                placeholder="District Athletics Selection Trial"
+                required
+            >
+
+
+            <label>
+                Sport
+            </label>
+
+            <input
+                type="text"
+                name="sport"
+                required
+            >
+
+
+            <label>
+                Minimum Age
+            </label>
+
+            <input
+                type="number"
+                name="age_min"
+                required
+            >
+
+
+            <label>
+                Maximum Age
+            </label>
+
+            <input
+                type="number"
+                name="age_max"
+                required
+            >
+
+
+            <label>
+                Location
+            </label>
+
+            <input
+                type="text"
+                name="location"
+                placeholder="Guwahati, Assam"
+                required
+            >
+
+
+            <label>
+                Date
+            </label>
+
+            <input
+                type="date"
+                name="date"
+                required
+            >
+
+
+            <label>
+                Organizer
+            </label>
+
+            <input
+                type="text"
+                name="organizer"
+                placeholder="District Sports Authority"
+                required
+            >
+
+
+            <label>
+                Description
+            </label>
+
+            <textarea
+                name="description"
+                rows="6"
+                required></textarea>
+
+
+            <button
+                type="submit"
+                class="primary-btn full-btn">
+
+                Publish Opportunity
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

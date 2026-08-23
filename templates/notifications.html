@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}
+Notifications
+{% endblock %}
+
+{% block content %}
+
+<section class="page">
+
+    <h1>
+        🔔 Notifications
+    </h1>
+
+    <div class="notification-list">
+
+        {% for notification in notifications %}
+
+        <div class="notification">
+
+            <div class="notification-icon">
+                🔔
+            </div>
+
+            <div>
+
+                <h3>
+                    {{ notification.title }}
+                </h3>
+
+                <p>
+                    {{ notification.message }}
+                </p>
+
+                <small>
+                    {{ notification.created_at.strftime(
+                        "%d %b %Y %H:%M"
+                    ) }}
+                </small>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="empty">
+
+            <h3>
+                You're all caught up!
+            </h3>
+
+            <p>
+                No notifications yet.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block title %}
+My Profile
+{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>
+            👤 My Profile
+        </h1>
+
+        <form method="POST">
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                name="full_name"
+                value="{{ user.full_name or '' }}"
+            >
+
+
+            <label>
+                Phone
+            </label>
+
+            <input
+                type="text"
+                name="phone"
+                value="{{ user.phone or '' }}"
+            >
+
+
+            <label>
+                Sport
+            </label>
+
+            <input
+                type="text"
+                name="sport"
+                value="{{ user.sport or '' }}"
+            >
+
+
+            <label>
+                Age
+            </label>
+
+            <input
+                type="number"
+                name="age"
+                value="{{ user.age or '' }}"
+            >
+
+
+            <label>
+                City / Village
+            </label>
+
+            <input
+                type="text"
+                name="city"
+                value="{{ user.city or '' }}"
+            >
+
+
+            <label>
+                State
+            </label>
+
+            <input
+                type="text"
+                name="state"
+                value="{{ user.state or '' }}"
+            >
+
+
+            <label>
+                Preferred Language
+            </label>
+
+            <select name="language">
+
+                <option
+                    {% if user.language == "English" %}
+                    selected
+                    {% endif %}>
+                    English
+                </option>
+
+                <option
+                    {% if user.language == "Hindi" %}
+                    selected
+                    {% endif %}>
+                    Hindi
+                </option>
+
+                <option
+                    {% if user.language == "Assamese" %}
+                    selected
+                    {% endif %}>
+                    Assamese
+                </option>
+
+                <option
+                    {% if user.language == "Bengali" %}
+                    selected
+                    {% endif %}>
+                    Bengali
+                </option>
+
+            </select>
+
+
+            <label>
+                About You
+            </label>
+
+            <textarea
+                name="bio"
+                rows="6">{{ user.bio or '' }}</textarea>
+
+
+            <button
+                type="submit"
+                class="primary-btn full-btn">
+
+                Save Profile
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
